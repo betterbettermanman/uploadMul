@@ -1,12 +1,12 @@
 
-
-
 #上传文件地址
 web:
-  upload-path: upload
+  upload-path: D:/upload/
 
 #服务器ip 处理静态文件上传
 serverIP: localhost
+
+
 
 spring:
   mvc:

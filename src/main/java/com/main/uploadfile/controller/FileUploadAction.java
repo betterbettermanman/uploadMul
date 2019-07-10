@@ -22,10 +22,10 @@ public class FileUploadAction {
     private final static Logger logger= LoggerFactory.getLogger(FileUploadAction.class);
 
     private static AtomicLong counter = new AtomicLong(0L);
-    //@Value(value="web.upload-path")
-    private String uploadPath="D:/upload/";
-
-    private String serviceIP="localhost";
+    @Value("${web.upload-path}")
+    private String uploadPath;
+    @Value("${serverIP}")
+    private String serviceIP;
 
     @RequestMapping("uploadfile")
     public Object uploadv2(MultipartFileParam param, HttpServletRequest request) throws Exception {
@@ -82,6 +82,7 @@ public class FileUploadAction {
            // System.out.println(prefix + "end !!!");
         }catch (Exception e){
             e.printStackTrace();
+            return "上传失败";
         }
 
 
@@ -92,7 +93,7 @@ public class FileUploadAction {
             return returnPath;
         }
 
-        return "还在上传中";
+        return "上传完成，上传地址为："+uploadPath;
     }
 
 
