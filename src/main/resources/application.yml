@@ -1,0 +1,29 @@
+
+
+
+#上传文件地址
+web:
+  upload-path: upload
+
+#服务器ip 处理静态文件上传
+serverIP: localhost
+
+spring:
+  mvc:
+    favicon:
+      enabled: false
+    static-path-pattern: /static/**
+    view:
+      prefix: /
+      suffix: .html
+  resources:
+    static-locations: classpath:/templates/,classpath:/static
+  http:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
+
+
+server:
+  port: 8089
+
